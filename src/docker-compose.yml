@@ -4,12 +4,13 @@ services:
   mysql:
     image: mysql:8.0
     container_name: database_queries
-    restart: always
+    restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: tienda
-      MYSQL_USER: esther
-      MYSQL_PASSWORD: key123
+      MYSQL_DATABASE: appdb
+      MYSQL_USER: user
+      MYSQL_PASSWORD: userpass
+      MYSQL_ROOT_HOST: "%"
     ports:
       - "3307:3306"
     volumes:
