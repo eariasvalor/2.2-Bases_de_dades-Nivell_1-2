@@ -3,18 +3,17 @@ version: '3.9'
 services:
   mysql:
     image: mysql:8.0
-    container_name: database_queries
+    container_name: mysql_queries
     restart: unless-stopped
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: appdb
-      MYSQL_USER: user
-      MYSQL_PASSWORD: userpass
-      MYSQL_ROOT_HOST: "%"
+      MYSQL_ROOT_PASSWORD: admin123
+      MYSQL_DATABASE: db_queries
+      MYSQL_USER: esther
+      MYSQL_PASSWORD: key123
     ports:
       - "3307:3306"
     volumes:
-      - mysql_data:/var/lib/mysql
+      - mysql_data:/var/lib/mysql2
 
 volumes:
   mysql_data:
