@@ -31,6 +31,8 @@ SELECT p.nombre AS nom_producte, p.precio AS preu_producte, f.nombre AS nom_fab 
 SELECT p.nombre AS nom_producte, p.precio AS preu_producte, f.nombre AS nom_fab FROM producto AS p JOIN fabricante AS f WHERE f.nombre LIKE '%w%';
 SELECT p.nombre AS nom_producte, p.precio AS preu_producte, f.nombre AS nom_fab FROM producto AS p JOIN fabricante AS f WHERE p.precio >= 180 ORDER BY p.precio DESC, p.nombre ASC;
 SELECT f.codigo AS codi_fabricador, f.nombre AS nom_fabricador FROM fabricante AS f JOIN producto AS p WHERE p.codigo_fabricante IS NOT NULL;
+SELECT f.nombre AS nom_fabricador, p.nombre AS nom_producte FROM fabricante AS f LEFT JOIN producto AS p ON f.codigo = p.codigo;
+SELECT f.nombre AS nom_fabricador FROM fabricante AS f JOIN producto AS p WHERE p.codigo_fabricante IS NULL;
 SELECT apellido1, apellido2, nombre FROM persona WHERE tipo = 'alumno' ORDER BY apellido1, apellido2, nombre;
 SELECT apellido1, apellido2, nombre FROM persona WHERE tipo = 'alumno' AND telefono IS NULL;
 SELECT * FROM persona WHERE tipo = 'alumno' AND YEAR(fecha_nacimiento) = 1999;
